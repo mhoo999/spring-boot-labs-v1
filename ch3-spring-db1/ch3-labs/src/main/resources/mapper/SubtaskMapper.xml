@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.ch3labs.subtask.mapper.SubtaskMapper">
+    <insert id="save" parameterType="com.example.ch3labs.subtask.domain.Subtask" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO subtasks(title, completed, parent_id)
+        VALUES (#{title}, #{completed}, #{parentId})
+    </insert>
+
+    <select id="findByParentId" parameterType="long" resultType="com.example.ch3labs.subtask.domain.Subtask">
+        SELECT *
+        FROM subtasks
+        WHERE parent_id = #{parentId}
+    </select>
+
+    <select id="findById" parameterType="long" resultType="com.example.ch3labs.subtask.domain.Subtask">
+        SELECT *
+        FROM subtasks
+        WHERE id = #{id}
+    </select>
+
+    <update id="update" parameterType="com.example.ch3labs.subtask.domain.Subtask">
+        UPDATE subtasks
+        SET title = #{title}, completed = #{completed}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="long">
+        DELETE
+        FROM subtasks
+        WHERE id = #{id}
+    </delete>
+</mapper>

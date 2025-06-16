@@ -1,0 +1,14 @@
+app:
+  name: hello-app
+  version: 1.0.0
+  message: Hello from YAML!
+
+spring:
+  application:
+    name: hello-app
+  profiles:
+    active: dev, prod  # 기본 활성화 프로파일
+
+server:
+  port: 8081
+
