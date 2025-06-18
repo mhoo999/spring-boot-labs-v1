@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface ReviewRepository extends JpaRepository<Review, Long> {
     Page<Review> findByTitle(String keyword, Pageable pageable);
     Page<Review> findByAuthor(String author, Pageable pageable);
-    Page<Review> findByRatingAfter(int rating, Pageable pageable);
+    Page<Review> findByRatingGreaterThanEqual(int rating, Pageable pageable);
     Page<Review> findByRatingBetween(int minRating, int maxRating, Pageable pageable);
 }

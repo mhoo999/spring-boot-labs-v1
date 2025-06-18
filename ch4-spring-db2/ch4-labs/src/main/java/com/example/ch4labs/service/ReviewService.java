@@ -38,12 +38,12 @@ public class ReviewService {
         Pageable pageable = PageRequest.of(request.getPage(), request.getSize());
         Page<Review> reviews = null;
 
-        if (!request.getKeyword().isEmpty()) {
+        if (request.getKeyword() != "") {
             reviews = reviewRepository.findByTitle(request.getKeyword(), pageable);
-        } else if (!request.getAuthor().isEmpty()) {
+        } else if (request.getAuthor() != null) {
             reviews = reviewRepository.findByAuthor(request.getAuthor(), pageable);
         } else if (request.getRating() != null) {
-            reviews = reviewRepository.findByRatingAfter(request.getRating(), pageable);
+            reviews = reviewRepository.findByRatingGreaterThanEqual(request.getRating(), pageable);
         } else if (request.getMinRating() != null &&  request.getMaxRating() != null) {
             reviews = reviewRepository.findByRatingBetween(request.getMinRating(), request.getMaxRating(), pageable);
         } else {
