@@ -1,5 +1,6 @@
 package com.example.ch4labs.dto;
 
+import com.example.ch4labs.entity.Review;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,4 +15,15 @@ public class CreateReviewRequest {
     private String bookTitle;
     private String bookAuthor;
     private int rating;
+
+    public Review toEntity() {
+        Review review = new Review();
+        review.setTitle(title);
+        review.setContent(content);
+        review.setAuthor(author);
+        review.setBookTitle(bookTitle);
+        review.setBookAuthor(bookAuthor);
+        review.setRating(rating);
+        return  review;
+    }
 }

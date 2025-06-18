@@ -2,6 +2,8 @@ package com.example.ch4labs.entity;
 
 import com.example.ch4labs.dto.UpdateReviewRequest;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,8 +23,14 @@ public class Review {
     private String title;
     private String content;
     private String author;
+
+    @Column(name = "book_title", nullable = false)
     private String bookTitle;
+    @Column(name = "book_author")
     private String bookAuthor;
+
+    @Min(1)
+    @Max(5)
     private int rating;
 
     public void update(UpdateReviewRequest request) {

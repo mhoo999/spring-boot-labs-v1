@@ -1,8 +1,6 @@
 package com.example.ch4labs.controller;
 
-import com.example.ch4labs.dto.CreateReviewRequest;
-import com.example.ch4labs.dto.ReviewResponse;
-import com.example.ch4labs.dto.UpdateReviewRequest;
+import com.example.ch4labs.dto.*;
 import com.example.ch4labs.repository.ReviewRepository;
 import com.example.ch4labs.service.ReviewService;
 import lombok.RequiredArgsConstructor;
@@ -26,17 +24,22 @@ public class ReviewController {
                 .body(reviewService.createReview(request));
     }
 
+//    @GetMapping
+//    public ResponseEntity<List<ReviewResponse>> findAllReviews() {
+//        return ResponseEntity.ok(reviewService.findAllReviews());
+//    }
+
     @GetMapping
-    public ResponseEntity<List<ReviewResponse>> findAllReviews() {
-        return ResponseEntity.ok(reviewService.findAllReviews());
+    public ResponseEntity<ReviewPageResponse> findAllReviews(ReviewSearchRequest request) {
+        return ResponseEntity.ok(reviewService.findAllReviews(request));
     }
 
-    @PutMapping("{reviewId}")
+    @PutMapping("/{reviewId}")
     public ResponseEntity<ReviewResponse> updateReview(@PathVariable Long reviewId, @RequestBody UpdateReviewRequest request) {
         return ResponseEntity.ok(reviewService.updateReview(reviewId, request));
     }
 
-    @DeleteMapping("{reviewId}")
+    @DeleteMapping("/{reviewId}")
     public ResponseEntity<Void> deleteReview(@PathVariable Long reviewId) {
         reviewRepository.deleteById(reviewId);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
