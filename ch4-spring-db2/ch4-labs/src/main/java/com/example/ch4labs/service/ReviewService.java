@@ -1,18 +1,14 @@
 package com.example.ch4labs.service;
 
-import com.example.ch4labs.dto.*;
+import com.example.ch4labs.dto.review.*;
 import com.example.ch4labs.entity.Review;
-import com.example.ch4labs.repository.ReviewRepository;
+import com.example.ch4labs.repository.review.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional

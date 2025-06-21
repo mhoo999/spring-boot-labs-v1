@@ -1,6 +1,6 @@
 package com.example.ch4labs.entity;
 
-import com.example.ch4labs.dto.UpdateReviewRequest;
+import com.example.ch4labs.dto.review.UpdateReviewRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

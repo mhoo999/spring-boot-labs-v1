@@ -1,7 +1,7 @@
-package com.example.ch4labs.repository;
+package com.example.ch4labs.repository.review;
 
-import com.example.ch4labs.dto.ReviewResponse;
-import com.example.ch4labs.dto.ReviewSearchRequest;
+import com.example.ch4labs.dto.review.ReviewResponse;
+import com.example.ch4labs.dto.review.ReviewSearchRequest;
 import com.example.ch4labs.entity.QReview;
 import com.example.ch4labs.entity.Review;
 import com.querydsl.core.BooleanBuilder;
@@ -15,7 +15,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor

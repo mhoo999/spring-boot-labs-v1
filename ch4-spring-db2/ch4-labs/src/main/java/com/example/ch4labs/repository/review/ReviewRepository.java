@@ -1,4 +1,4 @@
-package com.example.ch4labs.repository;
+package com.example.ch4labs.repository.review;
 
 import com.example.ch4labs.entity.Review;
 import org.springframework.data.domain.Page;

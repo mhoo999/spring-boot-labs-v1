@@ -1,4 +1,4 @@
-package com.example.ch4labs.dto;
+package com.example.ch4labs.dto.comment;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,11 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateReviewRequest {
-    private String title;
+public class CommentCreateRequest {
     private String content;
     private String author;
-    private String bookTitle;
-    private String bookAuthor;
-    private int rating;
 }
