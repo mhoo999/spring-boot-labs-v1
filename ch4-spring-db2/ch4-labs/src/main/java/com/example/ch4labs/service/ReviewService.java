@@ -34,23 +34,8 @@ public class ReviewService {
 //                .collect(Collectors.toList());
 //    }
 
-    public ReviewPageResponse findAllReviews(ReviewSearchRequest request) {
-        Pageable pageable = PageRequest.of(request.getPage(), request.getSize());
-        Page<Review> reviews = null;
-
-        if (request.getKeyword() != "") {
-            reviews = reviewRepository.findByTitle(request.getKeyword(), pageable);
-        } else if (request.getAuthor() != null) {
-            reviews = reviewRepository.findByAuthor(request.getAuthor(), pageable);
-        } else if (request.getRating() != null) {
-            reviews = reviewRepository.findByRatingGreaterThanEqual(request.getRating(), pageable);
-        } else if (request.getMinRating() != null &&  request.getMaxRating() != null) {
-            reviews = reviewRepository.findByRatingBetween(request.getMinRating(), request.getMaxRating(), pageable);
-        } else {
-            reviews = reviewRepository.findAll(pageable);
-        }
-
-        Page<ReviewResponse> page = reviews.map(ReviewResponse::from);
+    public ReviewPageResponse searchReviews(ReviewSearchRequest request) {
+        Page<ReviewResponse> page = reviewRepository.search(request);
 
         return ReviewPageResponse.from(page.getContent(), request, page.getTotalElements());
     }

@@ -30,8 +30,8 @@ public class ReviewController {
 //    }
 
     @GetMapping
-    public ResponseEntity<ReviewPageResponse> findAllReviews(ReviewSearchRequest request) {
-        return ResponseEntity.ok(reviewService.findAllReviews(request));
+    public ResponseEntity<ReviewPageResponse> searchReviews(ReviewSearchRequest request) {
+        return ResponseEntity.ok(reviewService.searchReviews(request));
     }
 
     @PutMapping("/{reviewId}")
