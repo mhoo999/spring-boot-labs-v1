@@ -4,6 +4,9 @@ import com.example.ch4labs.dto.review.UpdateReviewRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,6 +35,11 @@ public class Review {
     @Min(1)
     @Max(5)
     private int rating;
+
+    private LocalDateTime createdAt;
+
+    @OneToMany(mappedBy="review", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments = new ArrayList<>();
 
     public void update(UpdateReviewRequest request) {
         this.title = request.getTitle();

@@ -1,5 +1,6 @@
 package com.example.ch4labs.controller;
 
+import com.example.ch4labs.dto.comment.CommentSearchRequest;
 import com.example.ch4labs.dto.review.*;
 import com.example.ch4labs.repository.review.ReviewRepository;
 import com.example.ch4labs.service.ReviewService;
@@ -30,6 +31,11 @@ public class ReviewController {
     @GetMapping
     public ResponseEntity<ReviewPageResponse> searchReviews(ReviewSearchRequest request) {
         return ResponseEntity.ok(reviewService.searchReviews(request));
+    }
+
+    @GetMapping("/{reviewId}")
+    public ResponseEntity<ReviewWithCommentsResponsePaging> searchReview(@PathVariable Long reviewId, ReviewWithCommentsRequest request) {
+        return ResponseEntity.ok(reviewService.searchReview(reviewId, request));
     }
 
     @PutMapping("/{reviewId}")

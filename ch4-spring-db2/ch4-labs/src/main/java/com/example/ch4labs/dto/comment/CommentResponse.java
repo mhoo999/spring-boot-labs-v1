@@ -25,7 +25,6 @@ public class CommentResponse {
                 .id(saved.getId())
                 .content(saved.getContent())
                 .author(saved.getAuthor())
-                .reviewId(saved.getReviewId())
                 .createdAt(saved.getCreatedAt())
                 .build();
     }

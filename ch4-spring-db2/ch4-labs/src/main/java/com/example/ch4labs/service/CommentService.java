@@ -33,7 +33,6 @@ public class CommentService {
         Comment comment = Comment.builder()
                 .content(request.getContent())
                 .author(request.getAuthor())
-                .reviewId(review.getId())
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
                 .build();

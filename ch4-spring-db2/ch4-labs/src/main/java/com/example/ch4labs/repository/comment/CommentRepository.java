@@ -1,5 +1,7 @@
 package com.example.ch4labs.repository.comment;
 
+import com.example.ch4labs.dto.comment.CommentResponse;
+import com.example.ch4labs.dto.review.ReviewSearchRequest;
 import com.example.ch4labs.entity.Comment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
